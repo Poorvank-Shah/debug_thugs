@@ -32,7 +32,7 @@
     "react-player": "^2.14.1",
     "react-webcam": "^5.2.2",
     "simple-peer": "^9.11.1",
-    "socket.io-client": "^4.7.4",
+    "socket.io-client": "^4.5.0",
     "webrtc": "^1.14.1",
     "wrtc": "^0.4.7"
   },
