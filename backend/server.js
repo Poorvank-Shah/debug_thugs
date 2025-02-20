@@ -28,4 +28,10 @@ io.on("connection", (socket) => {
 	})
 })
 
+//write code to print hello for route '/'
+app.get("/hello", (req, res) => {
+	res.send("Hello")
+})
+
+
 server.listen(process.env.PORT || 5000, () => console.log("server is running on port 5000",process.env.PORT))

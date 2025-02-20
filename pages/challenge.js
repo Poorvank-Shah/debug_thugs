@@ -12,7 +12,7 @@ import { route } from "next/dist/server/router"
 import { useRouter } from "next/router"
 
 
-const socket = io.connect('http://localhost:5000')
+const socket = io.connect(process.env.NEXT_PUBLIC_SERVER_URL);
 function zoom() {
     const router = useRouter()
     const [me, setMe] = useState("")
