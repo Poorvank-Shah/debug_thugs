@@ -3,6 +3,7 @@ const http = require("http")
 const app = express()
 const server = http.createServer(app)
 const dotenv = require("dotenv")
+const cors = require("cors")
 dotenv.config()
 
 const io = require("socket.io")(server, {
@@ -11,6 +12,8 @@ const io = require("socket.io")(server, {
 		methods: [ "GET", "POST" ]
 	}
 })
+
+app.use(cors());
 
 io.on("connection", (socket) => {
 	socket.emit("me", socket.id)
@@ -27,11 +30,5 @@ io.on("connection", (socket) => {
 		io.to(data.to).emit("callAccepted", data.signal)
 	})
 })
-
-//write code to print hello for route '/'
-app.get("/hello", (req, res) => {
-	res.send("Hello")
-})
-
 
 server.listen(process.env.PORT || 5000, () => console.log("server is running on port 5000",process.env.PORT))
